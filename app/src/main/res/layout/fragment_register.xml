@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#90000000"
+        android:orientation="vertical"
+        android:padding="25dp">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button1"
+            android:ems="10"
+            android:hint="E-mail :"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="30dp"
+            android:textColorHint="#000"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button1"
+            android:ems="10"
+            android:hint="Password :"
+            android:inputType="textPassword"
+            android:paddingLeft="30dp"
+            android:textColorHint="@color/colorPrimary"
+
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etFirstname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button1"
+            android:ems="10"
+            android:hint="่Firstname :"
+            android:inputType="text"
+            android:paddingLeft="30dp"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etLastname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/button1"
+            android:ems="10"
+            android:hint="Lastname :"
+            android:inputType="text"
+            android:paddingLeft="30dp"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/button2"
+            android:onClick="clickRegister"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
