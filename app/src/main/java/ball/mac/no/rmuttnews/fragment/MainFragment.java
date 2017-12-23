@@ -1,5 +1,6 @@
 package ball.mac.no.rmuttnews.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import ball.mac.no.rmuttnews.R;
+import ball.mac.no.rmuttnews.ServiceActivity;
 import ball.mac.no.rmuttnews.utility.GetAllData;
 import ball.mac.no.rmuttnews.utility.MyAlert;
 import ball.mac.no.rmuttnews.utility.MyConstant;
@@ -101,6 +103,11 @@ public class MainFragment extends Fragment {
             } else if (passwordString.equals(loginStrings[2])) {
 
                 Toast.makeText(getActivity(),"welcome " + loginStrings[3]+" "+loginStrings[4],Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                intent.putExtra("Login", loginStrings);
+                getActivity().startActivity(intent);
+                getActivity().finish();
 
 
             } else {
