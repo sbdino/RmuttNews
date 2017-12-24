@@ -57,7 +57,6 @@ public class MainFragment extends Fragment {
                 else {
 //                    NO Space
                     checkEmailAndPassword();
-
                 }
 
             }//onClick
@@ -65,7 +64,7 @@ public class MainFragment extends Fragment {
     }//Main Method
 
     private void checkEmailAndPassword() {
-
+//checkEmailStart
         try {
 
             MyConstant myConstant = new MyConstant();
@@ -116,6 +115,7 @@ public class MainFragment extends Fragment {
             e.printStackTrace();
         }
     }
+//    checkEmailEnd
     private void registerController() {
         TextView register = getView().findViewById(R.id.tvRegister);
 
@@ -128,7 +128,6 @@ public class MainFragment extends Fragment {
             }//onClick
         });
     }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,
