@@ -69,7 +69,8 @@ public class ServiceActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.notification));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.news));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.maps));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.icon_pass));
+        tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
 
 }
     @Override
@@ -110,8 +111,6 @@ public class ServiceActivity extends AppCompatActivity {
                 R.string.open,
                 R.string.close
         );
-
-
 
     }
 

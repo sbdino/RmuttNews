@@ -38,8 +38,8 @@ public class MainFragment extends Fragment {
         registerController();
 
 //        Login Controller
-        Button button = getView().findViewById(R.id.btnLogin);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btnLogin = getView().findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText email = getView().findViewById(R.id.etEmail);
@@ -51,13 +51,12 @@ public class MainFragment extends Fragment {
                 if (emailString.isEmpty()||passwordString.isEmpty()) {
 //                    Have Space
                     MyAlert myAlert = new MyAlert(getActivity());
-                    myAlert.normalDialog("Have Space","Please Fill All B;ank");
+                    myAlert.normalDialog("Have Space","Please Fill All Blank");
 
                 }
                 else {
 //                    NO Space
                     checkEmailAndPassword();
-
 
                 }
 
@@ -86,11 +85,11 @@ public class MainFragment extends Fragment {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (emailString.equals(jsonObject.getString(columnStrings[1]))) {
                     b = false;
-                    for (int i1=0;i1<columnStrings.length;i1++) {
+                    for (i = 0; i<columnStrings.length; i++) {
 
-                        loginStrings[i1] = jsonObject.getString(columnStrings[i1]);
+                        loginStrings[i] = jsonObject.getString(columnStrings[i]);
 
-                        Log.d("23DecV1", "Login["+i1+"] ==> "+ loginStrings[i1]);
+                        Log.d("23DecV1", "Login["+i+"] ==> "+ loginStrings[i]);
                     }
                 }
             }//for
