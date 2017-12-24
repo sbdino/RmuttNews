@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Rmutt News</string>
+
     <string name="open">Open Drawer</string>
     <string name="close">Close Drawer</string>
+
+
+    <string name="follower">Follower</string>
+    <string name="notification">Notificate</string>
+    <string name="news">News</string>
+    <string name="maps">Maps</string>
 </resources>

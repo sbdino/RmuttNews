@@ -91,14 +91,13 @@ public class MainFragment extends Fragment {
                         loginStrings[i1] = jsonObject.getString(columnStrings[i1]);
 
                         Log.d("23DecV1", "Login["+i1+"] ==> "+ loginStrings[i1]);
-
                     }
                 }
             }//for
 
             if (b) {
 //                email fail
-                myAlert.normalDialog("email Fail","Please Check Yoru Email");
+                myAlert.normalDialog("email Fail","Please Check Your Email");
 
             } else if (passwordString.equals(loginStrings[2])) {
 
@@ -109,26 +108,19 @@ public class MainFragment extends Fragment {
                 getActivity().startActivity(intent);
                 getActivity().finish();
 
-
             } else {
 
                 myAlert.normalDialog("Password Fail","Please Try Again Email or Password");
 
             }
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
     private void registerController() {
-        TextView textView = getView().findViewById(R.id.tvRegister);
+        TextView register = getView().findViewById(R.id.tvRegister);
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().beginTransaction().
