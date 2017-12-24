@@ -8,6 +8,7 @@ import ball.mac.no.rmuttnews.fragment.FollowerFragment;
 import ball.mac.no.rmuttnews.fragment.MapsFragment;
 import ball.mac.no.rmuttnews.fragment.NewsFragment;
 import ball.mac.no.rmuttnews.fragment.NotificationFragment;
+import ball.mac.no.rmuttnews.fragment.SearchFragment;
 
 /**
  * Created by SB Dino on 23-Dec-17.
@@ -41,6 +42,9 @@ public class MyPagerAdapter extends FragmentPagerAdapter{
             case 3:
                 MapsFragment mapsFragment = new MapsFragment();
                 return mapsFragment;
+            case 4:
+                SearchFragment searchFragment = new SearchFragment();
+                return searchFragment;
             default: return null;
 
         }

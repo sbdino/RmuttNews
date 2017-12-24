@@ -23,7 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tabLayoutName"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary"
+            app:tabGravity="center"
+            app:tabMode="scrollable"
+            />
 
         <!--View Pager-->
         <android.support.v4.view.ViewPager
@@ -36,16 +39,12 @@
 
     <!--Drawer Menu-->
     <LinearLayout
-        android:layout_width="320dp"
+        android:layout_width="360dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity=""
         android:background="#ffffff"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Drawer Menu" />
 
 
 

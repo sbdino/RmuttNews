@@ -84,11 +84,11 @@ public class MainFragment extends Fragment {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (emailString.equals(jsonObject.getString(columnStrings[1]))) {
                     b = false;
-                    for (i = 0; i<columnStrings.length; i++) {
+                    for (int a = 0; a<columnStrings.length; a++) {
 
-                        loginStrings[i] = jsonObject.getString(columnStrings[i]);
+                        loginStrings[a] = jsonObject.getString(columnStrings[a]);
 
-                        Log.d("23DecV1", "Login["+i+"] ==> "+ loginStrings[i]);
+                        Log.d("23DecV1", "Login["+a+"] ==> "+ loginStrings[a]);
                     }
                 }
             }//for

@@ -13,6 +13,8 @@ import android.view.MenuItem;
 
 import ball.mac.no.rmuttnews.utility.MyPagerAdapter;
 
+import static ball.mac.no.rmuttnews.R.drawable.map;
+
 public class ServiceActivity extends AppCompatActivity {
 
     //    Explicit
@@ -21,7 +23,6 @@ public class ServiceActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
 
 
     @Override
@@ -63,16 +64,19 @@ public class ServiceActivity extends AppCompatActivity {
             }
         });
     }
+
     private void createTabLayout() {
         tabLayout = findViewById(R.id.tabLayoutName);
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.follower));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.notification));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.news));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.maps));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.icon_pass));
-        tabLayout.setTabGravity(TabLayout.MODE_SCROLLABLE);
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.follow).setText(R.string.follower));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notification).setText(R.string.notification));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news).setText(R.string.news));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.map).setText(R.string.maps));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_search).setText(R.string.search));
 
-}
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
@@ -96,6 +100,7 @@ public class ServiceActivity extends AppCompatActivity {
 
         actionBarDrawerToggle.syncState();
     }
+
     private void createToolbar() {
 
         toolbar = findViewById(R.id.toolbarService);

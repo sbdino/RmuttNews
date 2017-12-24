@@ -6,7 +6,8 @@
 
 
     <string name="follower">Follower</string>
-    <string name="notification">Notificate</string>
+    <string name="notification">Notification</string>
     <string name="news">News</string>
     <string name="maps">Maps</string>
+    <string name="search">Search</string>
 </resources>
