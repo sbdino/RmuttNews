@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import ball.mac.no.rmuttnews.utility.MyPagerAdapter;
@@ -41,14 +42,36 @@ public class ServiceActivity extends AppCompatActivity {
 //        Create PageView
         createPagerView();
 
+//      ********  getIntentStart*********
         Intent intentLogin = getIntent();
         String[] getLogin = intentLogin.getStringArrayExtra("Login");
-
         TextView tvEmail = (TextView)findViewById(R.id.tvEmail);
         TextView tvName =(TextView)findViewById(R.id.tvFnameLname);
-
         tvEmail.setText(getLogin[1]);
         tvName.setText(getLogin[3]+" "+getLogin[4]);
+
+        //onClickHome
+        TextView tvHome = (TextView)findViewById(R.id.tvHome);
+        tvHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.closeDrawers();
+                viewPager.setCurrentItem(0);
+            }
+        });
+
+        //onClinkFollow
+        TextView tvFollow = (TextView)findViewById(R.id.tvFollow);
+        tvFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent followIntent = new Intent(ServiceActivity.this,FollowActivity.class);
+                startActivity(followIntent);
+
+            }
+        });
+
+
     }   // Main Method
 
 //    Create PageView

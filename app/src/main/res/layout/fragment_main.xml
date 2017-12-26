@@ -28,8 +28,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/logo1"
-                    />
+                    android:src="@drawable/logo1" />
 
                 <TextView
                     android:id="@+id/textView"
@@ -38,7 +37,6 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/imageView"
-                    android:clickable="true"
                     android:gravity="center"
                     android:text="Notification Location Base System"
                     android:textColor="@color/white"
@@ -52,7 +50,6 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="35dp"
                     android:background="@drawable/button1"
-                    android:clickable="true"
                     android:hint="E-mail :"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
@@ -84,13 +81,13 @@
                     android:id="@+id/btnLogin"
                     android:layout_width="200dp"
                     android:layout_height="45dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@drawable/button"
                     android:onClick="clickLogin"
                     android:text="Login"
                     android:textColor="@color/white"
-                    android:textSize="24dp"
-                    android:layout_gravity="center"/>
+                    android:textSize="24dp" />
 
                 <TextView
                     android:id="@+id/tvForgot"
@@ -99,6 +96,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
+                    android:clickable="true"
                     android:gravity="center"
                     android:text="fotgot your password ?"
                     android:textColor="@color/red"
@@ -111,6 +109,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
+                    android:clickable="true"
                     android:gravity="center"
                     android:text="Sign Up"
                     android:textColor="@color/darkblue"
