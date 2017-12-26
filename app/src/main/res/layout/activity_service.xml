@@ -38,7 +38,7 @@
 
     <!--Drawer Menu-->
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="320dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#ffffff"
@@ -60,7 +60,7 @@
                 android:layout_marginTop="70dp"
                 android:text="textView"
                 android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textSize="22dp"
                 android:textStyle="bold"
                 android:layout_alignParentRight="true" />
 
@@ -74,7 +74,7 @@
                 android:layout_marginTop="15dp"
                 android:text="textView"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="normal"
                 android:layout_alignLeft="@+id/tvEmail" />
         </LinearLayout>
@@ -106,7 +106,7 @@
                     android:gravity="center"
                     android:text="Home"
                     android:textColor="@color/darkGrey"
-                    android:textSize="20dp" />
+                    android:textSize="18dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -129,7 +129,7 @@
                     android:gravity="center"
                     android:text="Follow"
                     android:textColor="@color/darkGrey"
-                    android:textSize="20dp" />
+                    android:textSize="18dp" />
             </LinearLayout>
 
             <Button
