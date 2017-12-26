@@ -1,5 +1,6 @@
 package ball.mac.no.rmuttnews;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import ball.mac.no.rmuttnews.utility.MyPagerAdapter;
 
@@ -36,12 +38,20 @@ public class ServiceActivity extends AppCompatActivity {
 //        Create TabLayout
         createTabLayout();
 
-
 //        Create PageView
         createPagerView();
 
+        Intent intentLogin = getIntent();
+        String[] getLogin = intentLogin.getStringArrayExtra("Login");
+
+        TextView tvEmail = (TextView)findViewById(R.id.tvEmail);
+        TextView tvName =(TextView)findViewById(R.id.tvFnameLname);
+
+        tvEmail.setText(getLogin[1]);
+        tvName.setText(getLogin[3]+" "+getLogin[4]);
     }   // Main Method
 
+//    Create PageView
     private void createPagerView() {
         viewPager = findViewById(R.id.pagerView);
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
@@ -64,14 +74,14 @@ public class ServiceActivity extends AppCompatActivity {
             }
         });
     }
-
+//    Create TabLayout
     private void createTabLayout() {
         tabLayout = findViewById(R.id.tabLayoutName);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.follow).setText(R.string.follower));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.notification).setText(R.string.notification));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.news).setText(R.string.news));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.map).setText(R.string.maps));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_search).setText(R.string.search));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.users));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.alarm));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.newspaper));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.map2));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.search));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -101,6 +111,7 @@ public class ServiceActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
     }
 
+//    create toolbar
     private void createToolbar() {
 
         toolbar = findViewById(R.id.toolbarService);
