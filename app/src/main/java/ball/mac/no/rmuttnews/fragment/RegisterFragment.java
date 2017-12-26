@@ -74,6 +74,13 @@ public class RegisterFragment extends Fragment {
                     checkEmail();
 
                     email.setTextColor(Color.RED);
+                    email.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            email.setText("");
+                            email.setTextColor(Color.BLACK);
+                        }
+                    });
 
                 }
 
