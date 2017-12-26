@@ -25,7 +25,7 @@
                 android:hint="E-mail :"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="30dp"
-                android:textColorHint="#000"
+                android:textColorHint="@color/grey"
                 android:textSize="18sp" />
 
             <EditText
@@ -39,7 +39,7 @@
                 android:hint="Password :"
                 android:inputType="textPassword"
                 android:paddingLeft="30dp"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/grey"
 
                 android:textSize="18sp" />
 
@@ -51,10 +51,10 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/button1"
                 android:ems="10"
-                android:hint="่Firstname :"
+                android:hint="Firstname :"
                 android:inputType="text"
                 android:paddingLeft="30dp"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/grey"
                 android:textSize="18sp" />
 
             <EditText
@@ -68,7 +68,7 @@
                 android:hint="Lastname :"
                 android:inputType="text"
                 android:paddingLeft="30dp"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/grey"
                 android:textSize="18sp" />
 
             <Button

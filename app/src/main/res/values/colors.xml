@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#010101</color>
     <color name="colorAccent">#84bfef</color>
     <color name="white">#FFFFFF</color>
-    <color name="grey">#C0BEC1</color>
+    <color name="grey">#5a586e</color>
     <color name="darkGrey">#404040</color>
     <color name="red">#FF0000</color>
     <color name="green">#07B357</color>
@@ -12,5 +12,5 @@
     <color name="orange">#FF5906</color>
     <color name="deep_sky_blue">#00BFFF</color>
     <color name="black">#000000</color>
-    <color name="drakblue">#0a01fc</color>
+    <color name="darkblue">#0a01fc</color>
 </resources>
