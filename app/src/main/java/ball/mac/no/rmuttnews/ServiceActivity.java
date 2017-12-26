@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import ball.mac.no.rmuttnews.utility.MyPagerAdapter;
@@ -65,9 +66,21 @@ public class ServiceActivity extends AppCompatActivity {
         tvFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                drawerLayout.closeDrawers();
                 Intent followIntent = new Intent(ServiceActivity.this,FollowActivity.class);
                 startActivity(followIntent);
 
+            }
+        });
+
+        //onClickLogout
+        Button btnLogout = (Button)findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logOutIntent = new Intent(ServiceActivity.this,MainActivity.class);
+                startActivity(logOutIntent);
+                finish();
             }
         });
 

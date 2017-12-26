@@ -99,11 +99,11 @@
 
                 <TextView
                     android:id="@+id/tvHome"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:clickable="true"
-                    android:gravity="center"
+                    android:gravity="left|center"
                     android:text="Home"
                     android:textColor="@color/darkGrey"
                     android:textSize="18dp" />
@@ -123,16 +123,17 @@
 
                 <TextView
                     android:id="@+id/tvFollow"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center"
+                    android:gravity="left|center"
                     android:text="Follow"
                     android:textColor="@color/darkGrey"
                     android:textSize="18dp" />
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnLogout"
                 android:layout_width="150dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
