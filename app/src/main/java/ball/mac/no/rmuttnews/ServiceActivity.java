@@ -17,8 +17,6 @@ import android.widget.TextView;
 
 import ball.mac.no.rmuttnews.utility.MyPagerAdapter;
 
-import static ball.mac.no.rmuttnews.R.drawable.map;
-
 public class ServiceActivity extends AppCompatActivity {
 
     //    Explicit
@@ -42,6 +40,9 @@ public class ServiceActivity extends AppCompatActivity {
 
 //        Create PageView
         createPagerView();
+
+
+
 
 //      ********  getIntentStart*********
         Intent intentLogin = getIntent();
@@ -78,16 +79,16 @@ public class ServiceActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent logOutIntent = new Intent(ServiceActivity.this,MainActivity.class);
+
+                Intent logOutIntent = new Intent(ServiceActivity.this,LoginActivity.class);
                 startActivity(logOutIntent);
                 finish();
             }
         });
 
-
     }   // Main Method
 
-//    Create PageView
+    //    Create PageView
     private void createPagerView() {
         viewPager = findViewById(R.id.pagerView);
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());

@@ -1,13 +1,10 @@
-package ball.mac.no.rmuttnews.fragment;
+package ball.mac.no.rmuttnews;
 
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,41 +13,37 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import ball.mac.no.rmuttnews.R;
-import ball.mac.no.rmuttnews.ServiceActivity;
 import ball.mac.no.rmuttnews.utility.GetAllData;
 import ball.mac.no.rmuttnews.utility.MyAlert;
 import ball.mac.no.rmuttnews.utility.MyConstant;
 
-/**
- * Created by SB Dino on 23-Dec-17.
- */
-
-public class MainFragment extends Fragment {
+public class LoginActivity extends AppCompatActivity {
 
     private String emailString, passwordString;
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
 
 //        Register Controller
         registerController();
 
 //        Login Controller
-        Button btnLogin = getView().findViewById(R.id.btnLogin);
+        Button btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText email = getView().findViewById(R.id.etEmail);
-                EditText password = getView().findViewById(R.id.etPassword);
+                EditText email = (EditText) findViewById(R.id.etEmail);
+                EditText password = (EditText) findViewById(R.id.etPassword);
 
                 emailString = email.getText().toString().trim();
                 passwordString = password.getText().toString().trim();
 
                 if (emailString.isEmpty()||passwordString.isEmpty()) {
 //                    Have Space
-                    MyAlert myAlert = new MyAlert(getActivity());
+                    MyAlert myAlert = new MyAlert(LoginActivity.this);
                     myAlert.normalDialog("Have Space","Please Fill All Blank");
 
                 }
@@ -58,18 +51,20 @@ public class MainFragment extends Fragment {
 //                    NO Space
                     checkEmailAndPassword();
                 }
-
             }//onClick
         });
+
+
     }//Main Method
+
 
     private void checkEmailAndPassword() {
 //checkEmailStart
         try {
 
             MyConstant myConstant = new MyConstant();
-            MyAlert myAlert = new MyAlert(getActivity());
-            GetAllData getAllData = new GetAllData(getActivity());
+            MyAlert myAlert = new MyAlert(LoginActivity.this);
+            GetAllData getAllData = new GetAllData(LoginActivity.this);
             getAllData.execute(myConstant.getUrlGetUser());
 
             String jsonString = getAllData.get();
@@ -99,12 +94,12 @@ public class MainFragment extends Fragment {
 
             } else if (passwordString.equals(loginStrings[2])) {
 
-                Toast.makeText(getActivity(),"welcome " + loginStrings[3]+" "+loginStrings[4],Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,"welcome " + loginStrings[3]+" "+loginStrings[4],Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ServiceActivity.class);
                 intent.putExtra("Login", loginStrings);
-                getActivity().startActivity(intent);
-                getActivity().finish();
+                LoginActivity.this.startActivity(intent);
+                LoginActivity.this.finish();
 
             } else {
 
@@ -115,25 +110,18 @@ public class MainFragment extends Fragment {
             e.printStackTrace();
         }
     }
-//    checkEmailEnd
+    //    checkEmailEnd
     private void registerController() {
-        TextView register = getView().findViewById(R.id.tvRegister);
+        TextView register = (TextView) findViewById(R.id.tvRegister);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().
-                        replace(R.id.contentMainFragment, new RegisterFragment())
-                        .addToBackStack(null).commit();
+                Intent regisIntent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(regisIntent);
+
             }//onClick
         });
     }
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        return view;
-    }
-}//Main Class
+ }//Main Class
+
