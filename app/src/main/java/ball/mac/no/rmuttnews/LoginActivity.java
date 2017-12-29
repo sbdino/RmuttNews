@@ -1,6 +1,8 @@
 package ball.mac.no.rmuttnews;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,32 +33,29 @@ public class LoginActivity extends AppCompatActivity {
         registerController();
 
 //        Login Controller
+        final EditText email = (EditText) findViewById(R.id.etEmail);
+        final EditText password = (EditText) findViewById(R.id.etPassword);
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText email = (EditText) findViewById(R.id.etEmail);
-                EditText password = (EditText) findViewById(R.id.etPassword);
+
 
                 emailString = email.getText().toString().trim();
                 passwordString = password.getText().toString().trim();
 
-                if (emailString.isEmpty()||passwordString.isEmpty()) {
+                if (emailString.isEmpty() || passwordString.isEmpty()) {
 //                    Have Space
                     MyAlert myAlert = new MyAlert(LoginActivity.this);
-                    myAlert.normalDialog("Have Space","Please Fill All Blank");
-
-                }
-                else {
+                    myAlert.normalDialog("Have Space", "Please Fill All Blank");
+                } else {
 //                    NO Space
                     checkEmailAndPassword();
                 }
             }//onClick
         });
 
-
     }//Main Method
-
 
     private void checkEmailAndPassword() {
 //checkEmailStart
@@ -73,43 +72,53 @@ public class LoginActivity extends AppCompatActivity {
             JSONArray jsonArray = new JSONArray(jsonString);
             String[] columnStrings = myConstant.getColumnUserString();
             String[] loginStrings = new String[columnStrings.length];
-            Boolean b = true ;//Email Fail
+            Boolean b = true;//Email Fail
 
-            for (int i = 0 ; i<jsonArray.length();i++) {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 if (emailString.equals(jsonObject.getString(columnStrings[1]))) {
                     b = false;
-                    for (int a = 0; a<columnStrings.length; a++) {
+                    for (int a = 0; a < columnStrings.length; a++) {
 
                         loginStrings[a] = jsonObject.getString(columnStrings[a]);
 
-                        Log.d("23DecV1", "Login["+a+"] ==> "+ loginStrings[a]);
+                        Log.d("23DecV1", "Login[" + a + "] ==> " + loginStrings[a]);
                     }
                 }
             }//for
 
             if (b) {
 //                email fail
-                myAlert.normalDialog("email Fail","Please Check Your Email");
+                myAlert.normalDialog("email Fail", "Please Check Your Email");
 
             } else if (passwordString.equals(loginStrings[2])) {
 
-                Toast.makeText(LoginActivity.this,"welcome " + loginStrings[3]+" "+loginStrings[4],Toast.LENGTH_SHORT).show();
 
+                SharedPreferences shared = getSharedPreferences("Rmuttnews", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = shared.edit();
+                editor.putString("id", loginStrings[0]);
+                editor.putString("email", loginStrings[1]);
+                editor.putString("password", loginStrings[2]);
+                editor.putString("fname", loginStrings[3]);
+                editor.putString("lname", loginStrings[4]);
+                editor.putString("status", loginStrings[5]);
+                editor.commit();
+                Toast.makeText(LoginActivity.this, "welcome " + loginStrings[3] + " " + loginStrings[4], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this, ServiceActivity.class);
-                intent.putExtra("Login", loginStrings);
-                LoginActivity.this.startActivity(intent);
-                LoginActivity.this.finish();
+                //intent.putExtra("Login", loginStrings);
+                startActivity(intent);
+                finish();
 
             } else {
 
-                myAlert.normalDialog("Password Fail","Please Try Again Email or Password");
+                myAlert.normalDialog("Password Fail", "Please Try Again Email or Password");
 
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     //    checkEmailEnd
     private void registerController() {
         TextView register = (TextView) findViewById(R.id.tvRegister);
@@ -117,11 +126,11 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regisIntent = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent regisIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(regisIntent);
 
             }//onClick
         });
     }
- }//Main Class
+}//Main Class
 

@@ -1,6 +1,8 @@
 package ball.mac.no.rmuttnews;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -25,6 +27,7 @@ public class ServiceActivity extends AppCompatActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    SharedPreferences shared;
 
 
     @Override
@@ -43,14 +46,19 @@ public class ServiceActivity extends AppCompatActivity {
 
 
 
-
+        //checkSession();
 //      ********  getIntentStart*********
-        Intent intentLogin = getIntent();
-        String[] getLogin = intentLogin.getStringArrayExtra("Login");
+
+        //Intent intentLogin = getIntent();
+        //String[] getLogin = intentLogin.getStringArrayExtra("Login");
         TextView tvEmail = (TextView)findViewById(R.id.tvEmail);
         TextView tvName =(TextView)findViewById(R.id.tvFnameLname);
-        tvEmail.setText(getLogin[1]);
-        tvName.setText(getLogin[3]+" "+getLogin[4]);
+        shared = getSharedPreferences("Rmuttnews", Context.MODE_PRIVATE);
+        String email = shared.getString("email","");
+        String fname = shared.getString("fname","");
+        String lname = shared.getString("lname","");
+        tvEmail.setText(email);
+        tvName.setText(fname+"   "+lname);
 
         //onClickHome
         TextView tvHome = (TextView)findViewById(R.id.tvHome);
@@ -80,6 +88,9 @@ public class ServiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                SharedPreferences.Editor editor = shared.edit();
+                editor.clear();
+                editor.commit();
                 Intent logOutIntent = new Intent(ServiceActivity.this,LoginActivity.class);
                 startActivity(logOutIntent);
                 finish();
@@ -87,6 +98,7 @@ public class ServiceActivity extends AppCompatActivity {
         });
 
     }   // Main Method
+
 
     //    Create PageView
     private void createPagerView() {
