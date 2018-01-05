@@ -54,6 +54,7 @@ public class ServiceActivity extends AppCompatActivity {
         TextView tvEmail = (TextView)findViewById(R.id.tvEmail);
         TextView tvName =(TextView)findViewById(R.id.tvFnameLname);
         shared = getSharedPreferences("Rmuttnews", Context.MODE_PRIVATE);
+        String userid = shared.getString("id","");
         String email = shared.getString("email","");
         String fname = shared.getString("fname","");
         String lname = shared.getString("lname","");
